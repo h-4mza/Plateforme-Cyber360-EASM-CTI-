@@ -37,23 +37,43 @@ Le projet repose sur une architecture moderne, asynchrone et modulaire :
 
 ---
 
-## 🚀 Installation & Lancement (Docker)
+## 🚀 Guide de Démarrage Rapide (Quick Start)
 
-Le projet est entièrement conteneurisé. Pour lancer la plateforme en local :
+Le projet est entièrement conteneurisé pour faciliter son déploiement. Voici les étapes exactes pour lancer la plateforme sur une nouvelle machine :
 
-1. Clonez le dépôt :
-   ```bash
-   git clone https://github.com/votre-nom/cyber360.git
-   cd cyber360
-   ```
-2. Configurez vos clés d'API (ex: Google Gemini AI) dans le fichier `.env` du backend.
-3. Lancez l'infrastructure complète avec Docker Compose :
-   ```bash
-   docker-compose up -d --build
-   ```
-4. Accédez à la plateforme :
-   *   **Frontend UI :** `http://localhost:3000`
-   *   **API Docs (Swagger) :** `http://localhost:8000/docs`
+### 1. Préparation de l'environnement
+*   Assurez-vous d'avoir **Docker** et **Docker Compose** installés sur votre machine.
+*   Extrayez l'archive ZIP du projet et ouvrez un terminal dans le dossier racine `cyber360`.
+
+### 2. Configuration des clés API
+Dans le dossier `backend`, créez un fichier nommé `.env` (s'il n'existe pas déjà) et ajoutez-y votre clé API Gemini (nécessaire pour le module Copilote IA) :
+```env
+GEMINI_API_KEY=votre_cle_api_ici
+```
+
+### 3. Lancement de l'infrastructure
+Allumez tous les moteurs (PostgreSQL, Redis, API FastAPI, React, Celery) en exécutant cette commande à la racine :
+```bash
+docker-compose up -d --build
+```
+*(Le premier lancement peut prendre 2 à 3 minutes le temps de télécharger les images).*
+
+### 4. Peupler la base de données (Seeding CTI)
+Pour que le moteur de *Threat Intelligence* fonctionne, il a besoin de connaître les groupes de hackers (APT) et les techniques MITRE. Exécutez le script d'initialisation intégré au backend :
+```bash
+docker exec -it cyber360-backend python scripts/run_sync_and_seed.py
+```
+*(Vous pouvez aussi utiliser `seed_attack_demo.py` pour générer de fausses vulnérabilités de test).*
+
+### 5. Utiliser la plateforme
+Félicitations, la plateforme tourne ! Accédez aux interfaces via votre navigateur :
+*   🖥️ **Interface Utilisateur (Frontend React) :** [http://localhost:3000](http://localhost:3000)
+*   ⚙️ **Documentation API Backend (Swagger) :** [http://localhost:8000/docs](http://localhost:8000/docs)
+
+**Par quoi commencer sur l'interface ?**
+1. Connectez-vous et allez sur la page des Domaines pour **Ajouter un Domaine Racine** (ex: `azunix.ma`).
+2. L'EASM va démarrer. Allez sur la vue **Graphe Topologique** pour voir les sous-domaines apparaître en temps réel.
+3. Allez dans l'onglet **Threat Landscape** pour voir l'algorithme croiser vos failles avec les profils d'attaquants, et générer le briefing avec l'IA !
 
 ---
 
