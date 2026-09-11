@@ -1,0 +1,16 @@
+{
+  "penalties": {
+    "critical": 25,
+    "high": 15,
+    "medium": 8,
+    "low": 3
+  },
+  "category_weights": {
+    "dns": 1.0,
+    "tls": 1.0,
+    "messagerie": 1.0,
+    "services": 1.0,
+    "configuration": 1.0,
+    "threat_intelligence": 1.0
+  }
+}

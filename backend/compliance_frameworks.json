@@ -1,0 +1,156 @@
+{
+  "dnssi": {
+    "name": "Directive Nationale de la Sécurité des Systèmes d'Information",
+    "authority": "DGSSI (Maroc)",
+    "controls": [
+      {
+        "control_id": "DNSSI-CRYPTO-1",
+        "domain": "Cryptographie",
+        "title": "Utilisation de protocoles cryptographiques robustes",
+        "mapped_rule_keys": ["tls_old_version"],
+        "dnssi_class": "A"
+      },
+      {
+        "control_id": "DNSSI-CRYPTO-2",
+        "domain": "Cryptographie",
+        "title": "Gestion et validité des certificats électroniques",
+        "mapped_rule_keys": ["tls_cert_expired", "tls_cert_expiring_soon", "caa_missing", "nouveau_certificat_detecte"]
+      },
+      {
+        "control_id": "DNSSI-COM-1",
+        "domain": "Sécurité des Communications",
+        "title": "Chiffrement systématique des canaux de communication",
+        "mapped_rule_keys": ["http_no_redirect", "hsts_missing", "mail_port_exposed_without_tls", "mta_sts_missing"],
+        "dnssi_class": "B"
+      },
+      {
+        "control_id": "DNSSI-COM-2",
+        "domain": "Sécurité des Communications",
+        "title": "Sécurisation et robustesse des serveurs DNS",
+        "mapped_rule_keys": ["dnssec_missing", "dns_zone_transfer_exposed"]
+      },
+      {
+        "control_id": "DNSSI-COM-3",
+        "domain": "Sécurité des Communications",
+        "title": "Authentification forte des courriers électroniques",
+        "mapped_rule_keys": ["spf_missing", "spf_permissive", "dmarc_missing", "dkim_missing", "spf_softfail", "dmarc_none"]
+      },
+      {
+        "control_id": "DNSSI-VULN-1",
+        "domain": "Gestion des Vulnérabilités",
+        "title": "Correction continue des vulnérabilités logicielles connues",
+        "mapped_rule_keys": ["known_cve_detected", "eol_software_detected"]
+      },
+      {
+        "control_id": "DNSSI-VULN-2",
+        "domain": "Gestion des Vulnérabilités",
+        "title": "Fermeture ou restriction des interfaces d'administration",
+        "mapped_rule_keys": ["admin_port_exposed"],
+        "dnssi_class": "A"
+      },
+      {
+        "control_id": "DNSSI-WAF-1",
+        "domain": "Architecture de Sécurité",
+        "title": "Protection des actifs web (WAF) et intégrité du filtrage",
+        "mapped_rule_keys": ["origin_ip_exposed"]
+      },
+      {
+        "control_id": "DNSSI-DATA-1",
+        "domain": "Protection de l'Information",
+        "title": "Prévention des fuites d'informations sensibles",
+        "mapped_rule_keys": ["sensitive_file_exposed", "data_leak_exposure"],
+        "dnssi_class": "A"
+      },
+      {
+        "control_id": "DNSSI-SEC-1",
+        "domain": "Architecture de Sécurité",
+        "title": "Sécurisation des navigateurs clients (En-têtes de sécurité)",
+        "mapped_rule_keys": ["csp_missing", "x_frame_options_missing"]
+      },
+      {
+        "control_id": "DNSSI-DOM-1",
+        "domain": "Gestion des Actifs",
+        "title": "Maîtrise de l'infrastructure et des noms de domaine",
+        "mapped_rule_keys": ["subdomain_takeover_possible", "typosquatting"]
+      },
+      {
+        "control_id": "DNSSI-INC-1",
+        "domain": "Gestion des Incidents",
+        "title": "Surveillance de la réputation des infrastructures",
+        "mapped_rule_keys": ["ip_reputation_flagged", "domain_reputation_flagged"]
+      },
+      {
+        "control_id": "DNSSI-INC-2",
+        "domain": "Gestion des Incidents",
+        "title": "Canal de signalement de sécurité (Security.txt)",
+        "mapped_rule_keys": ["security_txt_missing"]
+      },
+      {
+        "control_id": "DNSSI-ORG-1",
+        "domain": "Gouvernance",
+        "title": "Politique de sécurité de l'information documentée",
+        "mapped_rule_keys": []
+      }
+    ]
+  },
+  "iso_27002": {
+    "name": "Code de bonne pratique pour le management de la sécurité de l'information",
+    "authority": "ISO",
+    "controls": [
+      {
+        "control_id": "ISO-8.10",
+        "domain": "Contrôles technologiques",
+        "title": "Suppression des informations dans les systèmes (Fichiers exposés)",
+        "mapped_rule_keys": ["sensitive_file_exposed"]
+      },
+      {
+        "control_id": "ISO-8.24",
+        "domain": "Contrôles technologiques",
+        "title": "Utilisation de la cryptographie",
+        "mapped_rule_keys": ["tls_old_version", "http_no_redirect", "hsts_missing"]
+      }
+    ]
+  },
+  "loi_09_08": {
+    "name": "Loi 09-08 (Protection des Données Personnelles)",
+    "authority": "CNDP (Maroc)",
+    "controls": [
+      {
+        "control_id": "09-08-ART-23-TLS",
+        "domain": "Sécurité des traitements",
+        "title": "Chiffrement des données à caractère personnel en transit",
+        "mapped_rule_keys": ["tls_old_version", "tls_cert_expired", "tls_cert_expiring_soon", "http_no_redirect"]
+      },
+      {
+        "control_id": "09-08-ART-23-HSTS",
+        "domain": "Sécurité des traitements",
+        "title": "Renforcement de la confidentialité des échanges (HSTS)",
+        "mapped_rule_keys": ["hsts_missing"]
+      },
+      {
+        "control_id": "09-08-ART-23-DATA",
+        "domain": "Sécurité des traitements",
+        "title": "Absence d'exposition fortuite de données à caractère personnel",
+        "mapped_rule_keys": ["sensitive_file_exposed", "data_leak_exposure"]
+      },
+      {
+        "control_id": "09-08-ART-23-DNS",
+        "domain": "Sécurité des traitements",
+        "title": "Intégrité de la résolution de noms (DNSSEC)",
+        "mapped_rule_keys": ["dnssec_missing"]
+      },
+      {
+        "control_id": "09-08-ORG-CONSENT",
+        "domain": "Droits des personnes",
+        "title": "Recueil explicite du consentement et information préalable",
+        "mapped_rule_keys": []
+      },
+      {
+        "control_id": "09-08-ORG-REGISTRE",
+        "domain": "Obligations déclaratives",
+        "title": "Déclaration ou demande d'autorisation préalable auprès de la CNDP",
+        "mapped_rule_keys": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,390 @@
+{
+  "spf_missing": {
+    "category": "messagerie",
+    "default_severity": "critical",
+    "title": "Enregistrement SPF manquant",
+    "explanation": "Le système qui vérifie l'identité de l'expéditeur de vos emails (SPF) n'est pas configuré sur votre domaine.",
+    "impact": "Des pirates peuvent utiliser votre nom de domaine pour envoyer de faux emails à vos clients (phishing). Si vos clients se font arnaquer en pensant que c'est vous, vous perdrez leur confiance et votre adresse email risque d'être mise sur liste noire mondiale.",
+    "recommendation": "Demandez à votre administrateur de créer une entrée texte (TXT) dans vos paramètres DNS pour déclarer quels outils (votre serveur mail, Mailchimp, etc.) ont le droit d'envoyer des emails pour vous.",
+    "attack_techniques": [
+      "T1566"
+    ],
+    "loss_magnitude_low": 100000,
+    "loss_magnitude_high": 500000,
+    "frequency_estimate": 0.5
+  },
+  "spf_permissive": {
+    "category": "messagerie",
+    "default_severity": "critical",
+    "title": "Enregistrement SPF trop permissif (+all)",
+    "explanation": "Votre système de vérification d'emails (SPF) contient un paramètre '+all' qui indique ouvertement à tout Internet que n'importe quel ordinateur a le droit d'envoyer des emails en votre nom.",
+    "impact": "Votre sécurité email est factice. N'importe quel fraudeur peut envoyer des emails en se faisant passer pour vous sans être bloqué, ce qui facilite grandement les arnaques usurpant votre identité.",
+    "recommendation": "Modifiez l'entrée TXT de votre SPF dans vos paramètres DNS et remplacez le '+all' par '-all' pour bloquer les expéditeurs non autorisés.",
+    "attack_techniques": [
+      "T1566"
+    ],
+    "loss_magnitude_low": 100000,
+    "loss_magnitude_high": 500000,
+    "frequency_estimate": 0.5
+  },
+  "spf_softfail": {
+    "category": "messagerie",
+    "default_severity": "low",
+    "title": "Enregistrement SPF en mode tolérant (~all)",
+    "explanation": "Votre système de vérification d'emails (SPF) est en mode permissif ('~all'). Il indique que les serveurs non reconnus ne devraient pas envoyer d'emails en votre nom, mais ne demande pas de les bloquer fermement.",
+    "impact": "Les emails envoyés par des pirates usurpant votre identité risquent de passer à travers les filtres et d'arriver dans les boîtes de réception de vos clients, au lieu d'être directement rejetés.",
+    "recommendation": "Assurez-vous que tous vos outils d'envoi d'emails sont bien déclarés, puis remplacez le '~all' par '-all' dans votre DNS pour passer en mode strict.",
+    "attack_techniques": [
+      "T1566"
+    ],
+    "loss_magnitude_low": 1000,
+    "loss_magnitude_high": 10000,
+    "frequency_estimate": 0.05
+  },
+  "dmarc_missing": {
+    "category": "messagerie",
+    "default_severity": "critical",
+    "title": "Enregistrement DMARC manquant",
+    "explanation": "Votre domaine ne possède pas de système DMARC, qui est la consigne donnée aux services de messagerie (comme Gmail ou Outlook) sur la façon de traiter les faux emails usurpant votre nom.",
+    "impact": "Sans cette consigne, chaque fournisseur de messagerie doit deviner si un email suspect vient de vous ou non, ce qui laisse souvent passer les emails d'arnaque vers vos clients.",
+    "recommendation": "Créez une entrée DNS de type TXT nommée '_dmarc' avec au minimum la valeur 'v=DMARC1; p=none;' pour commencer à recevoir des rapports d'usurpation.",
+    "attack_techniques": [
+      "T1566"
+    ],
+    "loss_magnitude_low": 100000,
+    "loss_magnitude_high": 500000,
+    "frequency_estimate": 0.5
+  },
+  "dmarc_none": {
+    "category": "messagerie",
+    "default_severity": "low",
+    "title": "Politique DMARC en mode observation (p=none)",
+    "explanation": "Votre politique DMARC est en mode 'observation' (p=none). Vous recevez des rapports de sécurité, mais vous ne demandez pas aux fournisseurs de messagerie de bloquer les emails frauduleux.",
+    "impact": "Les pirates peuvent continuer à usurper votre adresse pour escroquer vos clients, puisque les emails illégitimes ne sont pas mis en spam ni supprimés.",
+    "recommendation": "Analysez vos rapports DMARC pour vous assurer que vos emails légitimes passent, puis changez la politique en 'p=quarantine' (mise en spam) puis 'p=reject' (rejet).",
+    "attack_techniques": [
+      "T1566"
+    ],
+    "loss_magnitude_low": 1000,
+    "loss_magnitude_high": 10000,
+    "frequency_estimate": 0.05
+  },
+  "dkim_missing": {
+    "category": "messagerie",
+    "default_severity": "medium",
+    "title": "Signature DKIM manquante",
+    "explanation": "Vos emails ne sont pas signés cryptographiquement (DKIM). Cette signature agit comme un sceau numérique prouvant que le contenu du message n'a pas été altéré.",
+    "impact": "Les boîtes de réception de vos destinataires (comme Gmail) traiteront vos emails avec méfiance. Vos messages légitimes risquent de finir dans le dossier spam (courriers indésirables).",
+    "recommendation": "Activez la signature DKIM directement depuis l'interface d'administration de votre fournisseur de messagerie (Microsoft 365, Google Workspace, etc.).",
+    "attack_techniques": [
+      "T1566"
+    ],
+    "loss_magnitude_low": 10000,
+    "loss_magnitude_high": 50000,
+    "frequency_estimate": 0.1
+  },
+  "dnssec_missing": {
+    "category": "dns",
+    "default_severity": "low",
+    "title": "DNSSEC non activé",
+    "explanation": "L'annuaire qui traduit votre nom de domaine en adresse technique (DNS) ne bénéficie pas de la sécurité renforcée DNSSEC. Cette sécurité empêche les annuaires falsifiés.",
+    "impact": "Un pirate expérimenté pourrait intercepter le trafic de vos utilisateurs et les rediriger vers un site frauduleux identique au vôtre pour voler leurs mots de passe, même s'ils ont tapé la bonne adresse.",
+    "recommendation": "Activez la fonction DNSSEC depuis le tableau de bord de la société qui vous a vendu votre nom de domaine (votre bureau d'enregistrement).",
+    "loss_magnitude_low": 1000,
+    "loss_magnitude_high": 10000,
+    "frequency_estimate": 0.05
+  },
+  "tls_old_version": {
+    "category": "tls",
+    "default_severity": "high",
+    "title": "Utilisation d'une ancienne version de TLS",
+    "explanation": "Votre serveur accepte des connexions chiffrées basées sur d'anciens standards obsolètes (TLS 1.0 ou 1.1) qui datent des années 2000.",
+    "impact": "Un pirate se trouvant sur le même réseau que votre visiteur (par exemple, sur un Wi-Fi public) pourrait casser le cadenas de sécurité de la page et lire toutes les données transmises (mots de passe, cartes bancaires).",
+    "recommendation": "Configurez votre serveur web (Apache, Nginx, IIS) pour n'accepter que les protocoles récents TLS 1.2 et TLS 1.3.",
+    "loss_magnitude_low": 50000,
+    "loss_magnitude_high": 200000,
+    "frequency_estimate": 0.2
+  },
+  "tls_cert_expired": {
+    "category": "tls",
+    "default_severity": "critical",
+    "title": "Certificat TLS expiré",
+    "explanation": "Le certificat de sécurité qui garantit l'identité de votre site web (le cadenas HTTPS) a dépassé sa date de fin de validité.",
+    "impact": "Tous les navigateurs web (Chrome, Safari, etc.) bloquent désormais l'accès à votre site avec un énorme écran d'alerte rouge effrayant. Vous perdez l'intégralité de votre trafic et votre crédibilité.",
+    "recommendation": "Renouvelez votre certificat d'urgence auprès de votre hébergeur ou via Let's Encrypt.",
+    "loss_magnitude_low": 100000,
+    "loss_magnitude_high": 500000,
+    "frequency_estimate": 0.5
+  },
+  "tls_cert_expiring_soon": {
+    "category": "tls",
+    "default_severity": "medium",
+    "title": "Certificat TLS expirant bientôt",
+    "explanation": "Le certificat de sécurité de votre site (HTTPS) va bientôt arriver à échéance.",
+    "impact": "Si rien n'est fait avant la date limite, votre site web affichera une alerte de sécurité à tous vos visiteurs et deviendra virtuellement inaccessible.",
+    "recommendation": "Vérifiez que votre système de renouvellement automatique fonctionne, sinon procédez au renouvellement manuel du certificat.",
+    "loss_magnitude_low": 10000,
+    "loss_magnitude_high": 50000,
+    "frequency_estimate": 0.1
+  },
+  "http_no_redirect": {
+    "category": "services",
+    "default_severity": "high",
+    "title": "Absence de redirection HTTP vers HTTPS",
+    "explanation": "Votre site reste accessible sans le cadenas de sécurité (en tapant HTTP au lieu de HTTPS), et ne force pas les visiteurs à passer sur la version sécurisée.",
+    "impact": "Les visiteurs qui cliquent sur un vieux lien ou qui oublient de taper 'https' navigueront en clair. Leurs identifiants ou leurs données personnelles pourront être volés par toute personne sur leur réseau local.",
+    "recommendation": "Mettez en place une redirection automatique (code HTTP 301) pour forcer systématiquement tous les visiteurs du site HTTP vers la version HTTPS.",
+    "loss_magnitude_low": 50000,
+    "loss_magnitude_high": 200000,
+    "frequency_estimate": 0.2
+  },
+  "hsts_missing": {
+    "category": "configuration",
+    "default_severity": "medium",
+    "title": "En-tête HSTS manquant",
+    "explanation": "Votre site n'informe pas les navigateurs web qu'ils doivent mémoriser l'obligation de se connecter en mode sécurisé (HSTS) à l'avenir.",
+    "impact": "Lors d'une première connexion, ou depuis un réseau Wi-Fi public, un pirate peut intercepter la navigation de votre client avant qu'il ne soit redirigé vers le site sécurisé.",
+    "recommendation": "Ajoutez l'en-tête technique 'Strict-Transport-Security' (HSTS) dans la configuration de votre serveur web pour forcer la mémorisation du chiffrement.",
+    "loss_magnitude_low": 10000,
+    "loss_magnitude_high": 50000,
+    "frequency_estimate": 0.1
+  },
+  "ip_reputation_flagged": {
+    "category": "threat_intelligence",
+    "default_severity": "medium",
+    "title": "Réputation IP Compromise",
+    "explanation": "L'adresse IP associée à cet actif a été signalée comme malveillante par des bases de données de renseignement sur les menaces (Threat Intelligence).",
+    "impact": "Une réputation IP compromise peut indiquer que le serveur est utilisé pour du spam, du phishing, héberge des malwares, ou qu'il a été impliqué dans des attaques.",
+    "recommendation": "Investiguez immédiatement le serveur. Cherchez des signes de compromission, corrigez les vulnérabilités, et une fois nettoyé, demandez le retrait de l'IP des listes noires (delisting).",
+    "loss_magnitude_low": 10000,
+    "loss_magnitude_high": 50000,
+    "frequency_estimate": 0.1
+  },
+  "domain_reputation_flagged": {
+    "category": "threat_intelligence",
+    "default_severity": "medium",
+    "title": "Réputation de Domaine Signalée",
+    "explanation": "Ce domaine a été signalé par plusieurs moteurs de sécurité ou antivirus (ex. VirusTotal).",
+    "impact": "Vos emails risquent d'être rejetés, et les navigateurs modernes pourraient bloquer l'accès au site avec un avertissement de sécurité rouge (Safe Browsing).",
+    "recommendation": "Analysez le domaine pour détecter tout contenu malveillant, phishing ou redirection suspecte. Soumettez des demandes de faux-positifs si le signalement est erroné.",
+    "loss_magnitude_low": 10000,
+    "loss_magnitude_high": 50000,
+    "frequency_estimate": 0.1
+  },
+  "csp_missing": {
+    "category": "configuration",
+    "default_severity": "medium",
+    "title": "En-tête Content-Security-Policy absent",
+    "explanation": "Votre site n'a pas de politique de contenu de sécurité (CSP). Cette politique permet de définir exactement quelles images, scripts ou boutons tiers sont autorisés à charger.",
+    "impact": "Si un pirate trouve une petite faille dans votre site, il pourra injecter un script malveillant (piratage XSS) pour, par exemple, capturer les numéros de carte bancaire de vos visiteurs à leur insu.",
+    "recommendation": "Mettez en place un en-tête 'Content-Security-Policy' listant uniquement les services externes de confiance (Google Analytics, Stripe, etc.) dont vous avez besoin.",
+    "loss_magnitude_low": 10000,
+    "loss_magnitude_high": 50000,
+    "frequency_estimate": 0.1
+  },
+  "x_frame_options_missing": {
+    "category": "configuration",
+    "default_severity": "low",
+    "title": "En-tête X-Frame-Options manquant",
+    "explanation": "Votre site n'interdit pas à d'autres sites Internet de l'afficher comme un widget à l'intérieur de leurs propres pages web.",
+    "impact": "Un site malveillant pourrait afficher votre page web en arrière-plan transparent et piéger vos utilisateurs pour qu'ils cliquent sur des boutons sensibles (achats, suppression de compte) à leur insu (Clickjacking).",
+    "recommendation": "Ajoutez l'en-tête 'X-Frame-Options: SAMEORIGIN' ou 'DENY' pour interdire à tout site tiers d'encapsuler votre page.",
+    "loss_magnitude_low": 1000,
+    "loss_magnitude_high": 10000,
+    "frequency_estimate": 0.05
+  },
+  "admin_port_exposed": {
+    "category": "services",
+    "default_severity": "critical",
+    "title": "Interface d'administration publiquement exposée",
+    "explanation": "Une porte d'entrée technique (port d'administration pour la maintenance à distance) est laissée grande ouverte sur Internet.",
+    "impact": "Des armées de robots informatiques (botnets) vont tester des millions de mots de passe chaque jour sur cette porte. S'ils trouvent le bon, ils prendront le contrôle total de votre serveur, bloqueront vos données (Ransomware) ou utiliseront vos serveurs pour d'autres attaques.",
+    "recommendation": "Fermez cet accès au grand public via un pare-feu (Firewall) et exigez l'utilisation d'un réseau privé virtuel (VPN) pour l'administration.",
+    "attack_techniques": [
+      "T1133"
+    ],
+    "loss_magnitude_low": 100000,
+    "loss_magnitude_high": 500000,
+    "frequency_estimate": 0.5
+  },
+  "eol_software_detected": {
+    "category": "services",
+    "default_severity": "high",
+    "title": "Logiciel en fin de vie (Obsolète)",
+    "explanation": "L'un des logiciels faisant fonctionner votre système est si ancien que son éditeur a officiellement arrêté de le mettre à jour (Fin de vie).",
+    "impact": "Puisque l'éditeur ne corrige plus les failles, toute nouvelle vulnérabilité découverte restera ouverte pour toujours. Un attaquant exploitera ces failles connues pour s'introduire dans votre système sans aucune difficulté.",
+    "recommendation": "Mettez à niveau ce logiciel vers une version plus récente et maintenue.",
+    "loss_magnitude_low": 50000,
+    "loss_magnitude_high": 200000,
+    "frequency_estimate": 0.2
+  },
+  "mail_port_exposed_without_tls": {
+    "category": "messagerie",
+    "default_severity": "high",
+    "title": "Port email ouvert sans chiffrement garanti",
+    "explanation": "Votre serveur d'envoi d'emails n'oblige pas à chiffrer les échanges lors du transport des messages.",
+    "impact": "Tous les emails professionnels entrants ou sortants, ainsi que leurs éventuelles pièces jointes et les mots de passe de vos collaborateurs, circulent en texte clair et peuvent être lus par des intermédiaires malveillants.",
+    "recommendation": "Configurez immédiatement votre serveur mail pour exiger le chiffrement STARTTLS et refusez les connexions non sécurisées.",
+    "loss_magnitude_low": 50000,
+    "loss_magnitude_high": 200000,
+    "frequency_estimate": 0.2
+  },
+  "typosquatting": {
+    "category": "threat_intelligence",
+    "default_severity": "high",
+    "title": "Nom de domaine similaire détecté (Typosquatting)",
+    "explanation": "Un attaquant a enregistré un nom de domaine qui ressemble visuellement très fortement au vôtre (ex. avec une faute de frappe).",
+    "impact": "Si un serveur mail y est actif, il y a une forte probabilité que ce domaine serve à lancer des attaques de hameçonnage (phishing) très ciblées contre vos employés ou vos clients.",
+    "recommendation": "Surveillez ce domaine. S'il est utilisé de façon malveillante, vous pouvez engager une procédure UDRP/SYRELI pour exiger son transfert ou son blocage.",
+    "loss_magnitude_low": 50000,
+    "loss_magnitude_high": 200000,
+    "frequency_estimate": 0.2
+  },
+  "data_leak_exposure": {
+    "category": "threat_intelligence",
+    "default_severity": "high",
+    "title": "Comptes exposés dans une fuite de données",
+    "explanation": "Des adresses e-mail appartenant à votre domaine ont été retrouvées dans une ou plusieurs bases de données volées (Data Breach).",
+    "impact": "Les pirates utilisent souvent ces bases pour trouver des mots de passe réutilisés, ce qui leur permet de s'infiltrer facilement dans vos systèmes professionnels si l'un de vos employés a gardé le même mot de passe.",
+    "recommendation": "Forcez le changement des mots de passe pour les employés concernés et assurez-vous que l'authentification multi-facteurs (MFA) est déployée sur toutes vos applications.",
+    "loss_magnitude_low": 50000,
+    "loss_magnitude_high": 200000,
+    "frequency_estimate": 0.2
+  },
+  "nouveau_certificat_detecte": {
+    "category": "threat_intelligence",
+    "default_severity": "medium",
+    "title": "Nouveau certificat détecté (CT Log)",
+    "explanation": "Un nouveau certificat de sécurité SSL/TLS vient d'être émis pour l'un de vos sous-domaines (monitoré via les Certificate Transparency logs).",
+    "impact": "Si vous n'êtes pas à l'origine de cette demande, cela pourrait indiquer qu'un pirate a pris le contrôle de l'un de vos serveurs DNS (Shadow IT ou compromission).",
+    "recommendation": "Vérifiez en interne avec vos équipes IT et vos prestataires si la création de ce sous-domaine/certificat était prévue. Répudiez le certificat s'il est frauduleux.",
+    "loss_magnitude_low": 10000,
+    "loss_magnitude_high": 50000,
+    "frequency_estimate": 0.1
+  },
+  "mta_sts_missing": {
+    "category": "messagerie",
+    "default_severity": "medium",
+    "title": "MTA-STS manquant",
+    "explanation": "Le standard MTA-STS, qui garantit que vos emails sont acheminés de façon sécurisée et chiffrée, n'est pas complètement configuré.",
+    "impact": "Un attaquant peut intercepter les emails sortants (attaque Man-in-the-Middle) et les lire, car d'autres serveurs pourraient utiliser une connexion non chiffrée si MTA-STS n'est pas exigé.",
+    "recommendation": "Configurez l'enregistrement DNS _mta-sts et publiez un fichier de politique valide (mta-sts.txt) sur le sous-domaine approprié.",
+    "loss_magnitude_low": 10000,
+    "loss_magnitude_high": 50000,
+    "frequency_estimate": 0.1
+  },
+  "tls_rpt_missing": {
+    "category": "messagerie",
+    "default_severity": "low",
+    "title": "TLS-RPT (Reporting) absent",
+    "explanation": "Le reporting des erreurs de chiffrement email (TLS-RPT) n'est pas activé via l'enregistrement _smtp._tls.",
+    "impact": "Vous n'avez aucune visibilité si d'autres serveurs échouent à vous envoyer des emails de façon sécurisée. Vous pourriez manquer des erreurs de configuration.",
+    "recommendation": "Ajoutez un enregistrement DNS TXT _smtp._tls pour recevoir les rapports d'erreurs de livraison TLS.",
+    "loss_magnitude_low": 1000,
+    "loss_magnitude_high": 10000,
+    "frequency_estimate": 0.05
+  },
+  "caa_missing": {
+    "category": "tls",
+    "default_severity": "low",
+    "title": "Enregistrements CAA manquants",
+    "explanation": "Le domaine n'a pas d'enregistrement DNS CAA (Certificate Authority Authorization) spécifiant quelles autorités de certification ont le droit d'émettre des certificats.",
+    "impact": "Un attaquant qui compromettrait une petite autorité de certification tierce pourrait émettre un certificat valide pour votre domaine sans que cela ne soit bloqué.",
+    "recommendation": "Ajoutez des enregistrements DNS CAA pour lister explicitement vos autorités de certification de confiance (par exemple, Let's Encrypt).",
+    "loss_magnitude_low": 1000,
+    "loss_magnitude_high": 10000,
+    "frequency_estimate": 0.05
+  },
+  "known_cve_detected": {
+    "category": "threat_intelligence",
+    "default_severity": "high",
+    "title": "Vulnérabilités connues (CVE) détectées",
+    "explanation": "Des failles de sécurité connues et publiques (CVE) existent pour la version du logiciel détectée sur cet actif.",
+    "impact": "Des pirates peuvent utiliser des outils automatisés ou des exploits publics pour prendre le contrôle de votre système ou voler vos données sans difficulté.",
+    "recommendation": "Mettez à jour le logiciel vers la dernière version sécurisée recommandée par l'éditeur.",
+    "attack_techniques": [
+      "T1190"
+    ],
+    "loss_magnitude_low": 50000,
+    "loss_magnitude_high": 200000,
+    "frequency_estimate": 0.2
+  },
+  "dns_zone_transfer_exposed": {
+    "category": "configuration",
+    "default_severity": "critical",
+    "title": "Transfert de zone DNS ouvert (AXFR)",
+    "explanation": "L'un des serveurs de noms (NS) autorise n'importe qui à télécharger l'intégralité du fichier de zone (AXFR).",
+    "impact": "Un attaquant obtient la cartographie complète et instantanée de votre infrastructure interne et externe (sous-domaines secrets, serveurs de test), facilitant grandement la préparation d'attaques ciblées.",
+    "recommendation": "Restreignez immédiatement les requêtes AXFR sur vos serveurs DNS pour qu'elles ne soient autorisées que depuis vos propres serveurs secondaires.",
+    "attack_techniques": [
+      "T1590.002"
+    ],
+    "loss_magnitude_low": 100000,
+    "loss_magnitude_high": 500000,
+    "frequency_estimate": 0.5
+  },
+  "sensitive_file_exposed": {
+    "category": "configuration",
+    "default_severity": "critical",
+    "title": "Fichier sensible exposé publiquement",
+    "explanation": "Un fichier contenant des informations confidentielles (code source, mots de passe, configuration système) est accessible librement sur le web.",
+    "impact": "Des pirates peuvent utiliser ces informations (comme des clés API ou des mots de passe de base de données) pour prendre le contrôle total de vos systèmes ou voler les données de vos clients.",
+    "recommendation": "Supprimez immédiatement l'accès public à ce fichier ou restreignez-le aux adresses IP internes.",
+    "attack_techniques": [
+      "T1592"
+    ],
+    "loss_magnitude_low": 100000,
+    "loss_magnitude_high": 500000,
+    "frequency_estimate": 0.5
+  },
+  "security_txt_missing": {
+    "category": "configuration",
+    "default_severity": "low",
+    "title": "Fichier security.txt manquant",
+    "explanation": "Le fichier standard security.txt (RFC 9116), qui indique aux chercheurs en sécurité comment vous contacter de manière sécurisée en cas de faille, est absent.",
+    "impact": "Les chercheurs éthiques qui découvrent une vulnérabilité auront du mal à vous prévenir, augmentant le risque qu'elle soit exploitée par des personnes malveillantes.",
+    "recommendation": "Créez un fichier security.txt dans le dossier /.well-known/ avec vos informations de contact sécurité.",
+    "loss_magnitude_low": 1000,
+    "loss_magnitude_high": 10000,
+    "frequency_estimate": 0.05
+  },
+  "subdomain_takeover_possible": {
+    "category": "configuration",
+    "default_severity": "critical",
+    "title": "Prise de contrôle de sous-domaine possible (Subdomain Takeover)",
+    "explanation": "Un sous-domaine pointe vers un service tiers (ex. Amazon S3, GitHub, Heroku) que vous avez résilié ou oublié, mais la redirection (CNAME) est toujours active.",
+    "impact": "Un attaquant peut s'inscrire sur le même service tiers et revendiquer le nom de votre sous-domaine. Il pourra alors publier du contenu malveillant, voler des sessions, ou distribuer des malwares directement sous votre marque.",
+    "recommendation": "Supprimez immédiatement l'enregistrement DNS CNAME pointant vers le service désactivé, ou réactivez le service tiers pour récupérer le contrôle du contenu.",
+    "attack_techniques": [
+      "T1584.001"
+    ],
+    "loss_magnitude_low": 100000,
+    "loss_magnitude_high": 500000,
+    "frequency_estimate": 0.5
+  },
+  "origin_ip_exposed": {
+    "category": "configuration",
+    "default_severity": "critical",
+    "title": "Fuite d'IP d'origine (Origin IP Leak)",
+    "explanation": "Votre domaine principal est protégé par un WAF/CDN, mais certains sous-domaines (comme mail., direct., origin.) exposent l'adresse IP réelle de votre serveur.",
+    "impact": "Un attaquant peut ignorer complètement votre WAF/CDN (Cloudflare, Akamai, etc.) en attaquant directement l'adresse IP réelle. Vos protections (anti-DDoS, filtrage) deviennent totalement inutiles.",
+    "recommendation": "Assurez-vous que votre serveur d'origine n'accepte que les connexions provenant des adresses IP de votre WAF/CDN (via pare-feu) et supprimez les sous-domaines inutiles qui pointent vers l'origine.",
+    "attack_techniques": [
+      "T1590"
+    ],
+    "loss_magnitude_low": 100000,
+    "loss_magnitude_high": 500000,
+    "frequency_estimate": 0.5
+  },
+  "shodan_port_discrepancy": {
+    "category": "services",
+    "default_severity": "low",
+    "title": "Port inconnu détecté par Shodan",
+    "explanation": "L'API Shodan a indexé un port ouvert sur cet actif que notre propre scan de ports de base n'a pas ciblé ou détecté.",
+    "impact": "Un service potentiellement vulnérable ou sensible pourrait être exposé sur ce port sans que vous n'en ayez conscience.",
+    "recommendation": "Vérifiez l'utilité de ce port, bloquez-le via le pare-feu s'il n'est pas nécessaire, et assurez-vous que tous les services exposés sont surveillés.",
+    "loss_magnitude_low": 1000,
+    "loss_magnitude_high": 10000,
+    "frequency_estimate": 0.05
+  }
+}

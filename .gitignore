@@ -1,0 +1,63 @@
+# ──────────────────────────────────────────────
+# Python / Backend
+# ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+dist/
+build/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+htmlcov/
+.coverage
+
+# ──────────────────────────────────────────────
+# Node.js / Frontend
+# ──────────────────────────────────────────────
+node_modules/
+frontend/dist/
+.vite/
+*.tsbuildinfo
+
+# ──────────────────────────────────────────────
+# Environment & Secrets
+# ──────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# ──────────────────────────────────────────────
+# IDE
+# ──────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ──────────────────────────────────────────────
+# Docker
+# ──────────────────────────────────────────────
+docker-compose.override.yml
+
+# ──────────────────────────────────────────────
+# OS
+# ──────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ----------------------------------------------
+# Core Intellectual Property (Algorithmes Priv�s)
+# ----------------------------------------------
+backend/app/modules/monitoring/risk_engine.py
+backend/app/modules/monitoring/scenario_engine.py
+backend/app/modules/monitoring/risk_rules.py
+backend/app/modules/monitoring/scoring.py
+backend/app/services/threat_landscape_engine.py
+backend/app/services/asset_relation_inference.py
+backend/app/services/typosquatting_check.py
+

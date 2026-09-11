@@ -1,0 +1,202 @@
+{
+  "credible_phishing": {
+    "title": "Chemin de phishing crédible",
+    "severity": "critical",
+    "explanation": "Un attaquant peut usurper votre marque par email avec un domaine quasi-identique (typosquatting détecté) et vos protections actuelles (SPF/DMARC défaillants) ne bloqueraient pas l'email frauduleux côté client.",
+    "max_hops": 1,
+    "allowed_relation_types": [
+      "shared_ip",
+      "shared_tls_cert_san",
+      "same_root_domain",
+      "dns_cname_chain",
+      "shared_hosting_asn",
+      "subdomain_naming_pattern"
+    ],
+    "kill_chain": [
+      {
+        "stage": 1,
+        "tactic": "initial-access",
+        "rule_keys": [
+          "spf_missing",
+          "dmarc_missing",
+          "dmarc_none",
+          "spf_permissive",
+          "spf_softfail"
+        ],
+        "technique_refs": [],
+        "require_same_asset": false
+      },
+      {
+        "stage": 2,
+        "tactic": "execution",
+        "rule_keys": [
+          "typosquatting_detected"
+        ],
+        "technique_refs": [],
+        "require_same_asset": false
+      }
+    ]
+  },
+  "waf_bypass_admin": {
+    "title": "Contournement de périmètre (WAF Bypass)",
+    "severity": "critical",
+    "explanation": "Votre WAF (Cloudflare/CDN) peut être contourné car l'IP d'origine de votre serveur a fuité, et un service d'administration est directement exposé sur cette même IP d'origine.",
+    "max_hops": 1,
+    "allowed_relation_types": [
+      "shared_ip",
+      "shared_tls_cert_san",
+      "same_root_domain",
+      "dns_cname_chain",
+      "shared_hosting_asn",
+      "subdomain_naming_pattern"
+    ],
+    "kill_chain": [
+      {
+        "stage": 1,
+        "tactic": "initial-access",
+        "rule_keys": [
+          "origin_ip_exposed"
+        ],
+        "technique_refs": [],
+        "require_same_asset": true
+      },
+      {
+        "stage": 2,
+        "tactic": "execution",
+        "rule_keys": [
+          "admin_port_exposed"
+        ],
+        "technique_refs": [],
+        "require_same_asset": true
+      }
+    ]
+  },
+  "forgotten_surface_takeover": {
+    "title": "Compromission de la surface oubliée (Takeover + Fuite de données)",
+    "severity": "critical",
+    "explanation": "Un sous-domaine abandonné est vulnérable à un Takeover ET expose des fichiers sensibles. Une fois détourné, l'attaquant pourrait s'en servir pour voler les données ou usurper un service de confiance.",
+    "max_hops": 1,
+    "allowed_relation_types": [
+      "shared_ip",
+      "shared_tls_cert_san",
+      "same_root_domain",
+      "dns_cname_chain",
+      "shared_hosting_asn",
+      "subdomain_naming_pattern"
+    ],
+    "kill_chain": [
+      {
+        "stage": 1,
+        "tactic": "initial-access",
+        "rule_keys": [
+          "subdomain_takeover_possible"
+        ],
+        "technique_refs": [],
+        "require_same_asset": true
+      },
+      {
+        "stage": 2,
+        "tactic": "execution",
+        "rule_keys": [
+          "sensitive_file_exposed",
+          "tls_cert_expired"
+        ],
+        "technique_refs": [],
+        "require_same_asset": true
+      }
+    ]
+  },
+  "maroc_stormous_ransomware_access": {
+    "title": "Compromission web type STORMOUS (Ransomware/Defacement)",
+    "severity": "critical",
+    "explanation": "Scénario classique du groupe STORMOUS ciblant le Maroc et la région MENA : exploitation d'un composant obsolète (ex: CMS) suivie d'un pivot ou accès direct sur une interface d'administration non protégée.",
+    "max_hops": 2,
+    "allowed_relation_types": [
+      "shared_ip",
+      "same_root_domain",
+      "dns_cname_chain"
+    ],
+    "kill_chain": [
+      {
+        "stage": 1,
+        "tactic": "initial-access",
+        "rule_keys": [
+          "eol_software_detected"
+        ],
+        "technique_refs": ["T1190"],
+        "require_same_asset": true
+      },
+      {
+        "stage": 2,
+        "tactic": "lateral-movement",
+        "rule_keys": [
+          "admin_port_exposed"
+        ],
+        "technique_refs": ["T1021.001", "T1133"],
+        "require_same_asset": false
+      }
+    ]
+  },
+  "maroc_starry_addax_spearphishing": {
+    "title": "Spearphishing ciblé type Starry Addax (ONG/Secteur Bancaire)",
+    "severity": "high",
+    "explanation": "Reproduction des TTP du groupe Starry Addax ciblant l'Afrique du Nord (Maroc) : Usurpation d'identité via l'absence de DMARC/SPF, menant la victime vers une infrastructure de typosquatting hébergeant un malware (APK) ou une fausse page de login.",
+    "max_hops": 1,
+    "allowed_relation_types": [
+      "shared_hosting_asn",
+      "same_root_domain"
+    ],
+    "kill_chain": [
+      {
+        "stage": 1,
+        "tactic": "initial-access",
+        "rule_keys": [
+          "spf_missing",
+          "dmarc_missing",
+          "dmarc_none"
+        ],
+        "technique_refs": ["T1566", "T1566.002"],
+        "require_same_asset": false
+      },
+      {
+        "stage": 2,
+        "tactic": "execution",
+        "rule_keys": [
+          "typosquatting_detected"
+        ],
+        "technique_refs": ["T1584.001"],
+        "require_same_asset": false
+      }
+    ]
+  },
+  "maroc_infrastructure_recon_leak": {
+    "title": "Fuite d'infrastructure et d'information (Menaces génériques MENA)",
+    "severity": "medium",
+    "explanation": "Collecte de renseignements via une erreur de configuration DNS (Zone Transfer) permettant de cartographier le réseau interne, couplée à la découverte de fichiers sensibles exposés (sauvegardes, clés).",
+    "max_hops": 2,
+    "allowed_relation_types": [
+      "shared_ip",
+      "subdomain_naming_pattern"
+    ],
+    "kill_chain": [
+      {
+        "stage": 1,
+        "tactic": "reconnaissance",
+        "rule_keys": [
+          "dns_zone_transfer_exposed"
+        ],
+        "technique_refs": ["T1590.002"],
+        "require_same_asset": false
+      },
+      {
+        "stage": 2,
+        "tactic": "collection",
+        "rule_keys": [
+          "sensitive_file_exposed"
+        ],
+        "technique_refs": ["T1592", "T1594"],
+        "require_same_asset": false
+      }
+    ]
+  }
+}

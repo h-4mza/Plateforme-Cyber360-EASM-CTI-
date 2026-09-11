@@ -1,0 +1,15 @@
+{
+  "sensitive_keywords": [
+    "admin", "vpn", "portal", "secure", "gateway",
+    "cpanel", "webmail", "whm", "plesk", "phpmyadmin",
+    "ftp", "ssh", "remote", "manage", "control",
+    "panel", "webdisk"
+  ],
+  "sensitive_technologies": [
+    "Fortinet VPN",
+    "Citrix Gateway",
+    "cPanel",
+    "Plesk",
+    "pfSense"
+  ]
+}

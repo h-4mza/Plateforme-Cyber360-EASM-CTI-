@@ -1,0 +1,2305 @@
+{
+    "scenario_draft_indrik_spider": {
+        "title": "[Indrik Spider] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Indrik Spider correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Reconnaissance",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Indrik Spider.",
+                "rule_keys": [
+                    "tls_rpt_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Indrik Spider.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_blackbyte": {
+        "title": "[BlackByte] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe BlackByte correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe BlackByte.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe BlackByte.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_gallium": {
+        "title": "[GALLIUM] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe GALLIUM correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe GALLIUM.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe GALLIUM.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe GALLIUM.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_apt3": {
+        "title": "[APT3] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe APT3 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe APT3.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "spf_softfail",
+                    "spf_missing",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe APT3.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_mustard_tempest": {
+        "title": "[Mustard Tempest] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Mustard Tempest correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Resource Development",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Mustard Tempest.",
+                "rule_keys": [
+                    "dnssec_missing",
+                    "subdomain_takeover_possible"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Mustard Tempest.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "csp_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_kimsuky": {
+        "title": "[Kimsuky] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Kimsuky correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Reconnaissance",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Kimsuky.",
+                "rule_keys": [
+                    "sensitive_file_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Resource Development",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Kimsuky.",
+                "rule_keys": [
+                    "dnssec_missing",
+                    "subdomain_takeover_possible"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Kimsuky.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "dmarc_none",
+                    "dmarc_missing",
+                    "eol_software_detected",
+                    "admin_port_exposed",
+                    "mta_sts_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 4,
+                "name": "Persistence",
+                "description": "Détection de l'étape 4 par les règles associées aux TTP du groupe Kimsuky.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 5,
+                "name": "Credential Access",
+                "description": "Détection de l'étape 5 par les règles associées aux TTP du groupe Kimsuky.",
+                "rule_keys": [
+                    "mail_port_exposed_without_tls",
+                    "hsts_missing",
+                    "mta_sts_missing",
+                    "tls_old_version",
+                    "x_frame_options_missing",
+                    "http_no_redirect"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 6,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 6 par les règles associées aux TTP du groupe Kimsuky.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 7,
+                "name": "Credential Access",
+                "description": "Détection de l'étape 7 par les règles associées aux TTP du groupe Kimsuky.",
+                "rule_keys": [
+                    "mail_port_exposed_without_tls",
+                    "hsts_missing",
+                    "mta_sts_missing",
+                    "tls_old_version",
+                    "x_frame_options_missing",
+                    "http_no_redirect"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 8,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 8 par les règles associées aux TTP du groupe Kimsuky.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_exotic_lily": {
+        "title": "[EXOTIC LILY] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe EXOTIC LILY correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Reconnaissance",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe EXOTIC LILY.",
+                "rule_keys": [
+                    "sensitive_file_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe EXOTIC LILY.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "spf_softfail",
+                    "spf_missing",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_volt_typhoon": {
+        "title": "[Volt Typhoon] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Volt Typhoon correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Reconnaissance",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Volt Typhoon.",
+                "rule_keys": [
+                    "tls_rpt_missing",
+                    "sensitive_file_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Volt Typhoon.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Persistence",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Volt Typhoon.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 4,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 4 par les règles associées aux TTP du groupe Volt Typhoon.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_teamtnt": {
+        "title": "[TeamTNT] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe TeamTNT correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe TeamTNT.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe TeamTNT.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_patchwork": {
+        "title": "[Patchwork] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Patchwork correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Patchwork.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "csp_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Patchwork.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Patchwork.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_apt41": {
+        "title": "[APT41] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe APT41 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe APT41.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe APT41.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe APT41.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 4,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 4 par les règles associées aux TTP du groupe APT41.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_dragonfly": {
+        "title": "[Dragonfly] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Dragonfly correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Dragonfly.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed",
+                    "csp_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Dragonfly.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Dragonfly.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_menupass": {
+        "title": "[menuPass] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe menuPass correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe menuPass.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe menuPass.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe menuPass.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_hafnium": {
+        "title": "[HAFNIUM] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe HAFNIUM correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Reconnaissance",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe HAFNIUM.",
+                "rule_keys": [
+                    "tls_rpt_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe HAFNIUM.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_fin6": {
+        "title": "[FIN6] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe FIN6 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe FIN6.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe FIN6.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_fin7": {
+        "title": "[FIN7] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe FIN7 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe FIN7.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "eol_software_detected",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe FIN7.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe FIN7.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_sandworm_team": {
+        "title": "[Sandworm Team] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Sandworm Team correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Reconnaissance",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Sandworm Team.",
+                "rule_keys": [
+                    "sensitive_file_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Sandworm Team.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "eol_software_detected",
+                    "admin_port_exposed",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Persistence",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Sandworm Team.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_apt18": {
+        "title": "[APT18] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe APT18 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe APT18.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe APT18.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_mustang_panda": {
+        "title": "[Mustang Panda] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Mustang Panda correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Mustang Panda.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "spf_softfail",
+                    "spf_missing",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Credential Access",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Mustang Panda.",
+                "rule_keys": [
+                    "mail_port_exposed_without_tls",
+                    "hsts_missing",
+                    "mta_sts_missing",
+                    "tls_old_version",
+                    "x_frame_options_missing",
+                    "http_no_redirect"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Credential Access",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Mustang Panda.",
+                "rule_keys": [
+                    "mail_port_exposed_without_tls",
+                    "hsts_missing",
+                    "mta_sts_missing",
+                    "tls_old_version",
+                    "x_frame_options_missing",
+                    "http_no_redirect"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 4,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 4 par les règles associées aux TTP du groupe Mustang Panda.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_scattered_spider": {
+        "title": "[Scattered Spider] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Scattered Spider correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Scattered Spider.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Scattered Spider.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Scattered Spider.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 4,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 4 par les règles associées aux TTP du groupe Scattered Spider.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_apt39": {
+        "title": "[APT39] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe APT39 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe APT39.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "eol_software_detected",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe APT39.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_akira": {
+        "title": "[Akira] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Akira correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Akira.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Akira.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Akira.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_moses_staff": {
+        "title": "[Moses Staff] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Moses Staff correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Moses Staff.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Moses Staff.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_oilrig": {
+        "title": "[OilRig] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe OilRig correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe OilRig.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "admin_port_exposed",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe OilRig.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe OilRig.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 4,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 4 par les règles associées aux TTP du groupe OilRig.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_sea_turtle": {
+        "title": "[Sea Turtle] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Sea Turtle correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Sea Turtle.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "dmarc_none",
+                    "dmarc_missing",
+                    "eol_software_detected",
+                    "admin_port_exposed",
+                    "mta_sts_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Sea Turtle.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Credential Access",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Sea Turtle.",
+                "rule_keys": [
+                    "mail_port_exposed_without_tls",
+                    "hsts_missing",
+                    "mta_sts_missing",
+                    "tls_old_version",
+                    "x_frame_options_missing",
+                    "http_no_redirect"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 4,
+                "name": "Credential Access",
+                "description": "Détection de l'étape 4 par les règles associées aux TTP du groupe Sea Turtle.",
+                "rule_keys": [
+                    "mail_port_exposed_without_tls",
+                    "hsts_missing",
+                    "mta_sts_missing",
+                    "tls_old_version",
+                    "x_frame_options_missing",
+                    "http_no_redirect"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_ke3chang": {
+        "title": "[Ke3chang] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Ke3chang correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Ke3chang.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Ke3chang.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_apt1": {
+        "title": "[APT1] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe APT1 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Resource Development",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe APT1.",
+                "rule_keys": [
+                    "dnssec_missing",
+                    "subdomain_takeover_possible"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe APT1.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "spf_softfail",
+                    "spf_missing",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe APT1.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_leviathan": {
+        "title": "[Leviathan] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Leviathan correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Leviathan.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "csp_missing",
+                    "eol_software_detected",
+                    "admin_port_exposed",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Leviathan.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Leviathan.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 4,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 4 par les règles associées aux TTP du groupe Leviathan.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_blue_mockingbird": {
+        "title": "[Blue Mockingbird] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Blue Mockingbird correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Blue Mockingbird.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Blue Mockingbird.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_ta505": {
+        "title": "[TA505] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe TA505 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe TA505.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "spf_softfail",
+                    "spf_missing",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe TA505.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_fin5": {
+        "title": "[FIN5] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe FIN5 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe FIN5.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe FIN5.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_apt29": {
+        "title": "[APT29] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe APT29 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe APT29.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "eol_software_detected",
+                    "admin_port_exposed",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe APT29.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_chimera": {
+        "title": "[Chimera] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Chimera correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Chimera.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Chimera.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Chimera.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_mirrorface": {
+        "title": "[MirrorFace] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe MirrorFace correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe MirrorFace.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "eol_software_detected",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe MirrorFace.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe MirrorFace.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_medusa_group": {
+        "title": "[Medusa Group] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Medusa Group correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Medusa Group.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Medusa Group.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Medusa Group.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_agrius": {
+        "title": "[Agrius] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Agrius correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Agrius.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Agrius.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_darkhotel": {
+        "title": "[Darkhotel] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Darkhotel correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Darkhotel.",
+                "rule_keys": [
+                    "csp_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Darkhotel.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_axiom": {
+        "title": "[Axiom] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Axiom correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Axiom.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "csp_missing",
+                    "eol_software_detected",
+                    "dmarc_missing",
+                    "dmarc_none",
+                    "mta_sts_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Axiom.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_ember_bear": {
+        "title": "[Ember Bear] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Ember Bear correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Ember Bear.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Ember Bear.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_luminousmoth": {
+        "title": "[LuminousMoth] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe LuminousMoth correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe LuminousMoth.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "spf_softfail",
+                    "spf_missing",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe LuminousMoth.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_apt28": {
+        "title": "[APT28] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe APT28 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe APT28.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed",
+                    "csp_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe APT28.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_apt5": {
+        "title": "[APT5] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe APT5 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe APT5.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe APT5.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_fox_kitten": {
+        "title": "[Fox Kitten] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Fox Kitten correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Fox Kitten.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Fox Kitten.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_apt-c-36": {
+        "title": "[APT-C-36] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe APT-C-36 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe APT-C-36.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "admin_port_exposed",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe APT-C-36.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_gold_southfield": {
+        "title": "[GOLD SOUTHFIELD] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe GOLD SOUTHFIELD correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe GOLD SOUTHFIELD.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "eol_software_detected",
+                    "dmarc_missing",
+                    "admin_port_exposed",
+                    "dmarc_none",
+                    "mta_sts_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe GOLD SOUTHFIELD.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_lazarus_group": {
+        "title": "[Lazarus Group] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Lazarus Group correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Lazarus Group.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "csp_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Lazarus Group.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Lazarus Group.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_inc_ransom": {
+        "title": "[INC Ransom] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe INC Ransom correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe INC Ransom.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "eol_software_detected",
+                    "dmarc_missing",
+                    "dmarc_none",
+                    "mta_sts_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe INC Ransom.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_silence": {
+        "title": "[Silence] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Silence correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Silence.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Silence.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_lapsus$": {
+        "title": "[LAPSUS$] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe LAPSUS$ correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe LAPSUS$.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe LAPSUS$.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_cobalt_group": {
+        "title": "[Cobalt Group] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Cobalt Group correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Cobalt Group.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "spf_softfail",
+                    "spf_missing",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Cobalt Group.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_wizard_spider": {
+        "title": "[Wizard Spider] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Wizard Spider correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Wizard Spider.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "admin_port_exposed",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Wizard Spider.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Wizard Spider.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 4,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 4 par les règles associées aux TTP du groupe Wizard Spider.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_molerats": {
+        "title": "[Molerats] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Molerats correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Molerats.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "spf_softfail",
+                    "spf_missing",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Molerats.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_velvet_ant": {
+        "title": "[Velvet Ant] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Velvet Ant correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Persistence",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Velvet Ant.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Velvet Ant.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_transparent_tribe": {
+        "title": "[Transparent Tribe] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Transparent Tribe correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Resource Development",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Transparent Tribe.",
+                "rule_keys": [
+                    "dnssec_missing",
+                    "subdomain_takeover_possible"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Transparent Tribe.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "csp_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_void_manticore": {
+        "title": "[VOID MANTICORE] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe VOID MANTICORE correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe VOID MANTICORE.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "eol_software_detected",
+                    "dmarc_missing",
+                    "admin_port_exposed",
+                    "dmarc_none",
+                    "mta_sts_missing",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe VOID MANTICORE.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe VOID MANTICORE.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_play": {
+        "title": "[Play] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Play correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Play.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Play.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_promethium": {
+        "title": "[PROMETHIUM] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe PROMETHIUM correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe PROMETHIUM.",
+                "rule_keys": [
+                    "csp_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe PROMETHIUM.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_daggerfly": {
+        "title": "[Daggerfly] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Daggerfly correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Daggerfly.",
+                "rule_keys": [
+                    "csp_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Daggerfly.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_magic_hound": {
+        "title": "[Magic Hound] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Magic Hound correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Resource Development",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Magic Hound.",
+                "rule_keys": [
+                    "dnssec_missing",
+                    "subdomain_takeover_possible"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Magic Hound.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "csp_missing",
+                    "eol_software_detected",
+                    "spf_missing",
+                    "spf_softfail",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe Magic Hound.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_threat_group-3390": {
+        "title": "[Threat Group-3390] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe Threat Group-3390 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe Threat Group-3390.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed",
+                    "csp_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe Threat Group-3390.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_fin8": {
+        "title": "[FIN8] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe FIN8 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe FIN8.",
+                "rule_keys": [
+                    "dkim_missing",
+                    "spf_softfail",
+                    "spf_missing",
+                    "spf_permissive"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe FIN8.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_fin13": {
+        "title": "[FIN13] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe FIN13 correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe FIN13.",
+                "rule_keys": [
+                    "eol_software_detected",
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Persistence",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe FIN13.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            },
+            {
+                "stage": 3,
+                "name": "Lateral Movement",
+                "description": "Détection de l'étape 3 par les règles associées aux TTP du groupe FIN13.",
+                "rule_keys": [
+                    "admin_port_exposed"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    },
+    "scenario_draft_teampcp": {
+        "title": "[TeamPCP] Kill Chain potentielle",
+        "severity": "critical",
+        "explanation": "Ce scénario a été auto-généré car les techniques utilisées par le groupe TeamPCP correspondent à plusieurs de nos règles de détection (rule_keys).",
+        "kill_chain": [
+            {
+                "stage": 1,
+                "name": "Initial Access",
+                "description": "Détection de l'étape 1 par les règles associées aux TTP du groupe TeamPCP.",
+                "rule_keys": [
+                    "eol_software_detected"
+                ],
+                "require_same_asset": false,
+                "max_hops": 0
+            },
+            {
+                "stage": 2,
+                "name": "Defense Impairment",
+                "description": "Détection de l'étape 2 par les règles associées aux TTP du groupe TeamPCP.",
+                "rule_keys": [
+                    "tls_cert_expiring_soon",
+                    "tls_cert_expired",
+                    "caa_missing"
+                ],
+                "require_same_asset": false,
+                "max_hops": 2
+            }
+        ]
+    }
+}
