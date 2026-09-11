@@ -61,3 +61,13 @@ backend/app/services/threat_landscape_engine.py
 backend/app/services/asset_relation_inference.py
 backend/app/services/typosquatting_check.py
 
+
+# ----------------------------------------------
+# Notes de conception et Prompts IA
+# ----------------------------------------------
+mvp.md
+mvp_tech.md
+prompt.md
+RECAPITULATIF.md
+backend/notes_verification_headers.md
+
