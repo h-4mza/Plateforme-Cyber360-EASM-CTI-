@@ -64,9 +64,15 @@ Ajout d'un domaine racine, **preuve de propriété par enregistrement DNS TXT** 
 - **Passive (furtive)** : énumération DNS, Certificate Transparency, OSINT. Aucun contact direct avec les serveurs du client.
 - **Active (intrusive, déclenchée à la demande)** : scan de ports, fingerprinting des services, détection de vulnérabilités et de fichiers sensibles exposés.
 
+<img src="docs/screenshots/11-decouverte-domaine.png" alt="Résultats de découverte d'un domaine" width="820">
+
 Chaque actif a une fiche (certificat TLS, technologies détectées, risques spécifiques, cycle de vie EOL), une **criticité métier ajustable** et un **rescan ciblé** pour valider un correctif sans relancer un scan complet.
 
 <img src="docs/screenshots/05-fiche-actif.png" alt="Fiche détaillée d'un actif" width="820">
+
+Le **graphe des actifs** relie les actifs entre eux (IP partagée, certificat TLS commun, chaîne CNAME, même ASN…) et met en évidence ceux qui sont ciblés par un scénario d'attaque.
+
+<img src="docs/screenshots/08-graphe-actifs.png" alt="Graphe des actifs" width="820">
 
 ### ⚠️ Risques priorisés
 
@@ -86,6 +92,12 @@ Matrice interactive des tactiques et techniques auxquelles l'organisation est ex
 
 <img src="docs/screenshots/04-matrice-mitre-attack.png" alt="Matrice MITRE ATT&CK" width="820">
 
+### 🌍 Threat Landscape
+
+Vue des groupes de menace qui ciblent le secteur et la région de l'organisation (Lazarus, APT34/OilRig, MuddyWater…), corrélés avec ses vulnérabilités ouvertes : techniques communes, exposition, sévérité moyenne. Une synthèse quotidienne générée par IA résume les préoccupations majeures et les recommandations.
+
+<img src="docs/screenshots/10-threat-landscape.png" alt="Threat Landscape" width="820">
+
 ### ⚖️ Conformité réglementaire
 
 Traduction automatique des risques techniques en contrôles réglementaires (**DNSSI**, **ISO 27001**, **Loi 09-08**), avec un score de conformité par référentiel. Statuts *Conforme*, *Non conforme* et *Non évaluable* : la plateforme assume explicitement ce qu'un scanner externe ne peut pas vérifier (politiques RH, procédures internes).
@@ -104,7 +116,9 @@ Trois radars externes, exécutés en tâches planifiées (Celery Beat) ou lancé
 
 ### 🤖 Copilote IA
 
-Intégration de Google Gemini (Google GenAI SDK) pour générer des synthèses exécutives et proposer du code de remédiation, dans un cadre strictement contraint par les données de la plateforme.
+Intégration de Google Gemini (Google GenAI SDK) pour générer des synthèses exécutives et proposer du code de remédiation, dans un cadre strictement contraint par les données de la plateforme. Pour chaque risque, le copilote explique la faille, son impact métier, les étapes de remédiation et suggère des techniques MITRE ATT&CK à confirmer par l'analyste.
+
+<img src="docs/screenshots/09-copilote-ia.png" alt="Copilote IA : analyse d'un risque" width="820">
 
 ---
 
